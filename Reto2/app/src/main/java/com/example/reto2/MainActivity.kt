@@ -1,4 +1,4 @@
-package com.example.reto0
+package com.example.reto2
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -17,13 +17,13 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Reto0App()
+            Reto2App()
         }
     }
 }
 
 @Composable
-fun Reto0App() {
+fun Reto2App() {
     MaterialTheme {
         Surface(modifier = Modifier.fillMaxSize()) {
             Box(
@@ -38,6 +38,6 @@ fun Reto0App() {
 
 @Preview(showBackground = true)
 @Composable
-private fun Reto0Preview() {
-    Reto0App()
+private fun Reto2Preview() {
+    Reto2App()
 }

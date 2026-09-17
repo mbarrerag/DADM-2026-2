@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.reto0"
+    namespace = "com.example.reto2"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -12,7 +12,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.reto0"
+        applicationId = "com.example.reto2"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

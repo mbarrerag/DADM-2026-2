@@ -1,6 +1,6 @@
-# Reto 0
+# Reto 2
 
-Aplicacion Android creada para la tarea **Reto 0**.
+Aplicacion Android creada para la tarea **Reto 2**.
 
 La aplicacion usa Kotlin y Jetpack Compose. La pantalla principal muestra unicamente el texto:
 
@@ -12,11 +12,11 @@ El texto esta centrado horizontal y verticalmente.
 
 ## Datos del proyecto
 
-- Nombre de la aplicacion: Reto 0
-- Package: `com.example.reto0`
+- Nombre de la aplicacion: Reto 2
+- Package: `com.example.reto2`
 - Lenguaje: Kotlin
 - Interfaz: Jetpack Compose
-- Repositorio sugerido en GitHub: `reto-0`
+- Repositorio sugerido en GitHub: `DADM-2026-2`
 
 ## Abrir en Android Studio
 
@@ -52,16 +52,16 @@ Si tu repositorio remoto ya existe y esta conectado, usa:
 
 ```powershell
 git add .
-git commit -m "Crear proyecto Android Reto 0"
+git commit -m "Crear proyecto Android Reto 2"
 git push -u origin main
 ```
 
-Si necesitas crear o conectar el repositorio manualmente, crea un repositorio privado llamado `reto-0` en GitHub y luego ejecuta:
+Si necesitas crear o conectar el repositorio manualmente, crea un repositorio privado llamado `DADM-2026-2` en GitHub y luego ejecuta:
 
 ```powershell
-git remote add origin https://github.com/TU_USUARIO/reto-0.git
+git remote add origin https://github.com/TU_USUARIO/DADM-2026-2.git
 git add .
-git commit -m "Crear proyecto Android Reto 0"
+git commit -m "Crear proyecto Android Reto 2"
 git branch -M main
 git push -u origin main
 ```

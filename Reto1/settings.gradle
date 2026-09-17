@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Reto3-TicTacToe"
+rootProject.name = "Reto1-TicTacToe"
 include ":app"

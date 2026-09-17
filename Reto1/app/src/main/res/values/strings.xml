@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Reto 3: Tic-Tac-Toe</string>
+    <string name="app_name">Reto 1: Tic-Tac-Toe</string>
     <string name="game_title">Tic-Tac-Toe</string>
-    <string name="game_subtitle">Reto 3 Android</string>
+    <string name="game_subtitle">Reto 1 Android</string>
     <string name="first_human">You start this round.</string>
     <string name="first_computer">Android starts this round.</string>
     <string name="turn_human">Your turn.</string>
