@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Reto 4: Menus and Dialogs</string>
+    <string name="app_name">Reto 4</string>
     <string name="game_title">Tic-Tac-Toe</string>
     <string name="game_subtitle">Reto 4 Android</string>
     <string name="first_human">You start this round.</string>
