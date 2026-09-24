@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Reto 4: Menus and Dialogs</string>
+    <string name="game_title">Tic-Tac-Toe</string>
+    <string name="game_subtitle">Reto 4 Android</string>
+    <string name="first_human">You start this round.</string>
+    <string name="first_computer">Android starts this round.</string>
+    <string name="turn_human">Your turn.</string>
+    <string name="turn_computer">Android is thinking...</string>
+    <string name="result_tie">It\'s a tie.</string>
+    <string name="result_human_wins">You won!</string>
+    <string name="result_computer_wins">Android won!</string>
+    <string name="new_game">New Game</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="difficulty_choose">Choose difficulty</string>
+    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_harder">Harder</string>
+    <string name="difficulty_expert">Expert</string>
+    <string name="quit">Quit</string>
+    <string name="quit_question">Do you want to quit the game?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="about">About</string>
+    <string name="about_title">Reto 4</string>
+    <string name="about_message">Tic-Tac-Toe with XML menu options, difficulty dialogs, quit confirmation, and custom About dialog.</string>
+    <string name="about_programmer">Programmer: DADM-2026-2</string>
+    <string name="ok">OK</string>
+    <string name="score_human">You: %1$d</string>
+    <string name="score_ties">Ties: %1$d</string>
+    <string name="score_android">Android: %1$d</string>
+    <string name="content_board_cell">Board cell</string>
+</resources>
