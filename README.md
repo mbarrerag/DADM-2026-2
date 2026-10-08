@@ -8,6 +8,7 @@ Repositorio organizado por retos de Android.
 - `Reto2/`: proyecto base Hello World.
 - `Reto4/`: Tic-Tac-Toe con menu XML, dialogos de dificultad, confirmacion de salida y About.
 - `Reto5/`: Tic-Tac-Toe con tablero dibujado en una vista custom, sonidos y turno de Android con delay.
+- `Reto6/`: Tic-Tac-Toe con soporte portrait/landscape, estado al rotar, puntajes persistentes y reset de marcador.
 - `Canvas y mockups/`: documentos de apoyo, canvas y mockups.
 
 Cada reto mantiene su propio proyecto Gradle para abrirlo y ejecutarlo de forma independiente en Android Studio.
