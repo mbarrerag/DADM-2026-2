@@ -93,6 +93,16 @@
                 android:contentDescription="@string/about"
                 android:padding="11dp"
                 android:src="@drawable/ic_about" />
+
+            <ImageButton
+                android:id="@+id/reset_scores_icon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="10dp"
+                android:background="?android:attr/actionBarItemBackground"
+                android:contentDescription="@string/reset_scores"
+                android:padding="11dp"
+                android:src="@drawable/ic_reset_scores" />
         </LinearLayout>
 
         <LinearLayout

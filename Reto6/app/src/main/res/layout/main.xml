@@ -1,123 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/app_background"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:padding="20dp">
-
-    <TextView
-        android:id="@+id/game_subtitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:letterSpacing="0.08"
-        android:text="@string/game_subtitle"
-        android:textAllCaps="true"
-        android:textColor="#2563EB"
-        android:textSize="13sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/game_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:gravity="center"
-        android:text="@string/game_title"
-        android:textColor="#0F172A"
-        android:textSize="34sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/information"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:gravity="center"
-        android:minHeight="32dp"
-        android:text="@string/first_human"
-        android:textColor="#334155"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+    android:fillViewport="true">
 
     <LinearLayout
-        android:id="@+id/action_icons"
-        android:layout_width="wrap_content"
-        android:layout_height="52dp"
-        android:layout_marginTop="14dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/new_game_icon"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
-            android:background="?android:attr/actionBarItemBackground"
-            android:contentDescription="@string/new_game"
-            android:padding="12dp"
-            android:src="@drawable/ic_new_game" />
-
-        <ImageButton
-            android:id="@+id/difficulty_icon"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
-            android:layout_marginStart="12dp"
-            android:background="?android:attr/actionBarItemBackground"
-            android:contentDescription="@string/difficulty"
-            android:padding="12dp"
-            android:src="@drawable/ic_difficulty" />
-
-        <ImageButton
-            android:id="@+id/about_icon"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
-            android:layout_marginStart="12dp"
-            android:background="?android:attr/actionBarItemBackground"
-            android:contentDescription="@string/about"
-            android:padding="12dp"
-            android:src="@drawable/ic_about" />
-    </LinearLayout>
-
-    <co.edu.unal.tictactoe.BoardView
-        android:id="@+id/board"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="14dp"
-        android:background="@drawable/board_panel"
-        android:contentDescription="@string/content_board_cell" />
-
-    <LinearLayout
-        android:id="@+id/score_row"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <TextView
-            android:id="@+id/human_score"
-            style="@style/ScoreText" />
+            android:id="@+id/game_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:letterSpacing="0.08"
+            android:text="@string/game_subtitle"
+            android:textAllCaps="true"
+            android:textColor="#2563EB"
+            android:textSize="13sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tie_score"
-            style="@style/ScoreText" />
+            android:id="@+id/game_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:text="@string/game_title"
+            android:textColor="#0F172A"
+            android:textSize="34sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/computer_score"
-            style="@style/ScoreText" />
+            android:id="@+id/information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:gravity="center"
+            android:minHeight="32dp"
+            android:text="@string/first_human"
+            android:textColor="#334155"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/action_icons"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/new_game_icon"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:background="?android:attr/actionBarItemBackground"
+                android:contentDescription="@string/new_game"
+                android:padding="12dp"
+                android:src="@drawable/ic_new_game" />
+
+            <ImageButton
+                android:id="@+id/difficulty_icon"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="10dp"
+                android:background="?android:attr/actionBarItemBackground"
+                android:contentDescription="@string/difficulty"
+                android:padding="12dp"
+                android:src="@drawable/ic_difficulty" />
+
+            <ImageButton
+                android:id="@+id/about_icon"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="10dp"
+                android:background="?android:attr/actionBarItemBackground"
+                android:contentDescription="@string/about"
+                android:padding="12dp"
+                android:src="@drawable/ic_about" />
+
+            <ImageButton
+                android:id="@+id/reset_scores_icon"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="10dp"
+                android:background="?android:attr/actionBarItemBackground"
+                android:contentDescription="@string/reset_scores"
+                android:padding="12dp"
+                android:src="@drawable/ic_reset_scores" />
+        </LinearLayout>
+
+        <co.edu.unal.tictactoe.BoardView
+            android:id="@+id/board"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/board_panel"
+            android:contentDescription="@string/content_board_cell" />
+
+        <LinearLayout
+            android:id="@+id/score_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/human_score"
+                style="@style/ScoreText" />
+
+            <TextView
+                android:id="@+id/tie_score"
+                style="@style/ScoreText" />
+
+            <TextView
+                android:id="@+id/computer_score"
+                style="@style/ScoreText" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/new_game_button"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/new_game_button"
+            android:text="@string/new_game"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/new_game_button"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginTop="18dp"
-        android:background="@drawable/new_game_button"
-        android:text="@string/new_game"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="17sp"
-        android:textStyle="bold" />
-</LinearLayout>
+</ScrollView>
