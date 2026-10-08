@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -100,6 +101,7 @@ public class AndroidTicTacToeActivity extends Activity {
                 startNewGame();
             }
         });
+        bindIconActions();
 
         restorePersistentState();
 
@@ -110,6 +112,31 @@ public class AndroidTicTacToeActivity extends Activity {
         }
 
         updateScoreBoard();
+    }
+
+    private void bindIconActions() {
+        ImageButton newGameIcon = findViewById(R.id.new_game_icon);
+        ImageButton difficultyIcon = findViewById(R.id.difficulty_icon);
+        ImageButton aboutIcon = findViewById(R.id.about_icon);
+
+        newGameIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startNewGame();
+            }
+        });
+        difficultyIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDifficultyDialog();
+            }
+        });
+        aboutIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showAboutDialog();
+            }
+        });
     }
 
     @Override

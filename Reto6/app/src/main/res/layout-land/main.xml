@@ -58,10 +58,48 @@
             android:textStyle="bold" />
 
         <LinearLayout
+            android:id="@+id/action_icons"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/new_game_icon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?android:attr/actionBarItemBackground"
+                android:contentDescription="@string/new_game"
+                android:padding="11dp"
+                android:src="@drawable/ic_new_game" />
+
+            <ImageButton
+                android:id="@+id/difficulty_icon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="10dp"
+                android:background="?android:attr/actionBarItemBackground"
+                android:contentDescription="@string/difficulty"
+                android:padding="11dp"
+                android:src="@drawable/ic_difficulty" />
+
+            <ImageButton
+                android:id="@+id/about_icon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="10dp"
+                android:background="?android:attr/actionBarItemBackground"
+                android:contentDescription="@string/about"
+                android:padding="11dp"
+                android:src="@drawable/ic_about" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/score_row"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -82,7 +120,7 @@
             android:id="@+id/new_game_button"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/new_game_button"
             android:text="@string/new_game"
             android:textAllCaps="false"
