@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ public class AndroidTicTacToeActivity extends Activity {
     private static final String KEY_COMPUTER_WINS = "computer_wins";
     private static final String KEY_TIES = "ties";
     private static final String KEY_DIFFICULTY = "difficulty";
+    private static final String KEY_HAS_SAVED_GAME = "has_saved_game";
 
     private TicTacToeGame mGame;
     private BoardView mBoardView;
@@ -100,16 +102,56 @@ public class AndroidTicTacToeActivity extends Activity {
                 startNewGame();
             }
         });
+        bindIconActions();
 
-        restorePersistentState();
+        boolean restoredPersistentGame = restorePersistentState();
 
         if (savedInstanceState == null) {
-            startNewGame();
+            if (restoredPersistentGame) {
+                mBoardView.invalidate();
+                if (!mGameOver && mComputerTurn) {
+                    scheduleComputerMove();
+                }
+            } else {
+                startNewGame();
+            }
         } else {
             restoreInstanceState(savedInstanceState);
         }
 
         updateScoreBoard();
+    }
+
+    private void bindIconActions() {
+        ImageButton newGameIcon = findViewById(R.id.new_game_icon);
+        ImageButton difficultyIcon = findViewById(R.id.difficulty_icon);
+        ImageButton aboutIcon = findViewById(R.id.about_icon);
+        ImageButton resetScoresIcon = findViewById(R.id.reset_scores_icon);
+
+        newGameIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startNewGame();
+            }
+        });
+        difficultyIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDifficultyDialog();
+            }
+        });
+        aboutIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showAboutDialog();
+            }
+        });
+        resetScoresIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resetScores();
+            }
+        });
     }
 
     @Override
@@ -271,7 +313,7 @@ public class AndroidTicTacToeActivity extends Activity {
         }
     }
 
-    private void restorePersistentState() {
+    private boolean restorePersistentState() {
         mHumanWins = mPrefs.getInt(KEY_HUMAN_WINS, 0);
         mComputerWins = mPrefs.getInt(KEY_COMPUTER_WINS, 0);
         mTies = mPrefs.getInt(KEY_TIES, 0);
@@ -283,6 +325,22 @@ public class AndroidTicTacToeActivity extends Activity {
         }
 
         mGame.setDifficultyLevel(levels[difficultyIndex]);
+
+        if (!mPrefs.getBoolean(KEY_HAS_SAVED_GAME, false)) {
+            return false;
+        }
+
+        String boardState = mPrefs.getString(KEY_BOARD, "");
+        if (boardState.length() != TicTacToeGame.BOARD_SIZE) {
+            return false;
+        }
+
+        mGame.setBoardState(boardState.toCharArray());
+        mGameOver = mPrefs.getBoolean(KEY_GAME_OVER, false);
+        mComputerTurn = mPrefs.getBoolean(KEY_COMPUTER_TURN, false);
+        mHumanStartsNextGame = mPrefs.getBoolean(KEY_HUMAN_STARTS_NEXT, true);
+        mInfoTextView.setText(mPrefs.getString(KEY_INFO, getString(R.string.first_human)));
+        return true;
     }
 
     private void savePersistentState() {
@@ -291,6 +349,12 @@ public class AndroidTicTacToeActivity extends Activity {
         editor.putInt(KEY_COMPUTER_WINS, mComputerWins);
         editor.putInt(KEY_TIES, mTies);
         editor.putInt(KEY_DIFFICULTY, mGame.getDifficultyLevel().ordinal());
+        editor.putBoolean(KEY_HAS_SAVED_GAME, true);
+        editor.putString(KEY_BOARD, new String(mGame.getBoardState()));
+        editor.putBoolean(KEY_GAME_OVER, mGameOver);
+        editor.putBoolean(KEY_COMPUTER_TURN, mComputerTurn);
+        editor.putBoolean(KEY_HUMAN_STARTS_NEXT, mHumanStartsNextGame);
+        editor.putString(KEY_INFO, mInfoTextView.getText().toString());
         editor.apply();
     }
 
