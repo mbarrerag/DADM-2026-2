@@ -1,0 +1,14 @@
+{
+  "rules": {
+    "games": {
+      "$gameId": {
+        ".read": "auth != null",
+        ".write": "auth != null",
+        ".validate": "newData.hasChildren(['hostUid', 'guestUid', 'status', 'board', 'turnUid'])",
+        "board": {
+          ".validate": "newData.isString() && newData.val().length == 9"
+        }
+      }
+    }
+  }
+}
