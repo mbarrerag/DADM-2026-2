@@ -132,7 +132,9 @@ public class MultiplayerTicTacToeActivity extends Activity {
 
     private void askForPlayerName(boolean create, String gameId) {
         EditText input = new EditText(this);
-        input.setHint("Tu nombre");
+        input.setHint("Tu nombre (opcional)");
+        input.setText(create ? "Jugador PC" : "Jugador móvil");
+        input.selectAll();
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle(create ? "Crear juego" : "Unirse al juego")
                 .setView(input)
