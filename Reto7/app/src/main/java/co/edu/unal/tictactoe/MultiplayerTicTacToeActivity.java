@@ -87,6 +87,7 @@ public class MultiplayerTicTacToeActivity extends Activity {
                 loadAvailableGames();
             } else {
                 statusText.setText("No se pudo autenticar con Firebase");
+                createButton.setEnabled(false);
             }
         });
     }

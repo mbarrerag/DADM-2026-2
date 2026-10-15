@@ -22,6 +22,7 @@ output.json
 # Keystores and credentials
 *.jks
 *.keystore
+**/google-services.json
 *.properties
 !gradle-wrapper.properties
 
