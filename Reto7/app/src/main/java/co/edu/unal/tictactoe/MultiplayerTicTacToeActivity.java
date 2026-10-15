@@ -5,6 +5,8 @@ import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -131,10 +133,10 @@ public class MultiplayerTicTacToeActivity extends Activity {
     private void askForPlayerName(boolean create, String gameId) {
         EditText input = new EditText(this);
         input.setHint("Tu nombre");
-        new AlertDialog.Builder(this)
+        AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle(create ? "Crear juego" : "Unirse al juego")
                 .setView(input)
-                .setPositiveButton("Continuar", (dialog, which) -> {
+                .setPositiveButton("Continuar", (clickedDialog, which) -> {
                     playerName = input.getText().toString().trim();
                     if (playerName.isEmpty()) {
                         playerName = "Jugador";
@@ -146,7 +148,15 @@ public class MultiplayerTicTacToeActivity extends Activity {
                     }
                 })
                 .setNegativeButton("Cancelar", null)
-                .show();
+                .create();
+        dialog.setOnShowListener(ignored -> {
+            input.requestFocus();
+            Window window = dialog.getWindow();
+            if (window != null) {
+                window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+            }
+        });
+        dialog.show();
     }
 
     private void createGame() {
