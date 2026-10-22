@@ -121,32 +121,76 @@ public class SqliteDirectoryActivity extends Activity {
     private View companyRow(Company company) {
         LinearLayout card = new LinearLayout(this);
         card.setOrientation(LinearLayout.VERTICAL);
-        card.setPadding(14, 12, 14, 12);
-        card.setBackgroundResource(R.drawable.board_panel);
+        card.setBackgroundResource(R.drawable.company_card);
+        LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        cardParams.setMargins(0, 0, 0, dp(10));
+        card.setLayoutParams(cardParams);
 
-        TextView details = new TextView(this);
-        details.setText(company.name + "\n" + company.classification + "\n" +
-                "Web: " + emptyAsDash(company.url) + "\n" +
-                "Tel: " + emptyAsDash(company.phone) + " | Email: " + emptyAsDash(company.email) + "\n" +
-                "Servicios: " + emptyAsDash(company.products));
-        details.setTextColor(0xff0f172a);
-        details.setTextSize(15);
-        card.addView(details);
+        TextView title = new TextView(this);
+        title.setText(company.name);
+        title.setTextColor(0xff0f172a);
+        title.setTextSize(18);
+        title.setTypeface(null, android.graphics.Typeface.BOLD);
+        card.addView(title);
+
+        TextView classificationLabel = detailText(company.classification, 0xff2563eb, 13);
+        classificationLabel.setTypeface(null, android.graphics.Typeface.BOLD);
+        card.addView(classificationLabel);
+
+        TextView contact = detailText("Web: " + emptyAsDash(company.url) + "\n" +
+                "Tel: " + emptyAsDash(company.phone) + "   |   Correo: " + emptyAsDash(company.email),
+                0xff475569, 14);
+        LinearLayout.LayoutParams contactParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        contactParams.setMargins(0, dp(8), 0, 0);
+        contact.setLayoutParams(contactParams);
+        card.addView(contact);
+
+        TextView productsLabel = detailText("Servicios: " + emptyAsDash(company.products), 0xff334155, 14);
+        LinearLayout.LayoutParams productsParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        productsParams.setMargins(0, dp(6), 0, 0);
+        productsLabel.setLayoutParams(productsParams);
+        card.addView(productsLabel);
 
         LinearLayout actions = new LinearLayout(this);
         actions.setGravity(android.view.Gravity.END);
         Button edit = new Button(this);
         edit.setText("Editar");
         edit.setAllCaps(false);
+        edit.setTextColor(0xff2563eb);
+        edit.setBackgroundResource(R.drawable.secondary_button);
         edit.setOnClickListener(view -> editCompany(company));
         Button delete = new Button(this);
         delete.setText("Eliminar");
         delete.setAllCaps(false);
+        delete.setTextColor(0xffB91C1C);
         delete.setOnClickListener(view -> confirmDelete(company));
+        LinearLayout.LayoutParams editParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT, dp(42));
+        editParams.setMargins(0, dp(10), dp(6), 0);
+        edit.setLayoutParams(editParams);
+        LinearLayout.LayoutParams deleteParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT, dp(42));
+        deleteParams.setMargins(0, dp(10), 0, 0);
+        delete.setLayoutParams(deleteParams);
         actions.addView(edit);
         actions.addView(delete);
         card.addView(actions);
         return card;
+    }
+
+    private TextView detailText(String text, int color, int size) {
+        TextView view = new TextView(this);
+        view.setText(text);
+        view.setTextColor(color);
+        view.setTextSize(size);
+        return view;
+    }
+
+    private int dp(int value) {
+        return Math.round(value * getResources().getDisplayMetrics().density);
     }
 
     private String emptyAsDash(String value) {
