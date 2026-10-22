@@ -43,10 +43,42 @@ public class SqliteDirectoryActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         database = new CompanyDbHelper(this);
+        seedDemoCompanies();
         bindViews();
         configureSpinners();
         configureActions();
         refreshList();
+    }
+
+    private void seedDemoCompanies() {
+        if (!database.find("", "Todas").isEmpty()) return;
+
+        Company globant = new Company();
+        globant.name = "Globant";
+        globant.url = "https://www.globant.com";
+        globant.phone = "+57 601 508 5900";
+        globant.email = "contacto@globant.com";
+        globant.products = "Desarrollo de software, datos y experiencia digital";
+        globant.classification = "Fábrica de software";
+        database.save(globant);
+
+        Company raiz = new Company();
+        raiz.name = "Raiz Digital";
+        raiz.url = "https://www.raizdigital.co";
+        raiz.phone = "+57 300 555 0111";
+        raiz.email = "hola@raizdigital.co";
+        raiz.products = "Aplicaciones web y móviles para empresas";
+        raiz.classification = "Desarrollo a la medida";
+        database.save(raiz);
+
+        Company consultoria = new Company();
+        consultoria.name = "Andes Tech Consultores";
+        consultoria.url = "https://www.andestech.co";
+        consultoria.phone = "+57 604 444 2200";
+        consultoria.email = "equipo@andestech.co";
+        consultoria.products = "Arquitectura, transformación digital y asesoría";
+        consultoria.classification = "Consultoría";
+        database.save(consultoria);
     }
 
     private void bindViews() {
