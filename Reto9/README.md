@@ -9,4 +9,4 @@ Aplicación Android de puntos de interés cercanos a la ubicación actual. Muest
 3. Pulsa **Ubicarme** y concede el permiso. Cambia el radio desde el botón `5 km` y filtra con **Todos**, **Salud**, **Turismo** o **Parques**.
 4. Toca una fila de la lista para centrar el mapa y ver el nombre del marcador.
 
-La app no necesita Firebase ni clave de Google Maps. Requiere Internet para los mapas y los lugares en vivo. El demo inicia en Plaza Imperial, Suba (Cra. 104 # 148-07) y, si Overpass no responde, muestra cuatro lugares de ejemplo aproximados de esa zona, identificados como `Vista de ejemplo · sin datos en vivo`. Estos puntos son solo para demostrar la interfaz; no son datos actualizados ni deben usarse para navegación.
+La app no necesita Firebase ni clave de Google Maps. Requiere Internet para los mapas y los lugares en vivo. El demo inicia en Plaza Imperial, Suba (Cra. 104 # 148-07) y, si Overpass no responde, muestra varios lugares de ejemplo aproximados de esa zona, identificados como `Vista de ejemplo · sin datos en vivo`. Estos puntos son solo para demostrar la interfaz; no son datos actualizados ni deben usarse para navegación.

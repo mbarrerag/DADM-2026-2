@@ -96,6 +96,11 @@ final class PlacesRepository {
         addSample(sample, origin, radiusMeters, "Portal de Suba", "Transporte", "Turismo", 4.7470, -74.0943);
         addSample(sample, origin, radiusMeters, "Parque Miramar", "Parque", "Parques", 4.7578, -74.1040);
         addSample(sample, origin, radiusMeters, "Biblioteca Julio Mario Santo Domingo", "Biblioteca", "Turismo", 4.7594, -74.0830);
+        addSample(sample, origin, radiusMeters, "Parque El Poa", "Parque", "Parques", 4.7340, -74.1010);
+        addSample(sample, origin, radiusMeters, "Parque Turingia", "Parque", "Parques", 4.7320, -74.0960);
+        addSample(sample, origin, radiusMeters, "Humedal Juan Amarillo", "Humedal", "Parques", 4.7160, -74.1070);
+        addSample(sample, origin, radiusMeters, "Centro Suba", "Centro comercial", "Turismo", 4.7374, -74.0853);
+        addSample(sample, origin, radiusMeters, "Parque La Colina", "Parque", "Parques", 4.7350, -74.0660);
         sample.sort(Comparator.comparingInt(place -> place.distanceMeters));
         return sample;
     }
