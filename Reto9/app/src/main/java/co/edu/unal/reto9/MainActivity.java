@@ -95,7 +95,8 @@ public class MainActivity extends Activity {
         map.setTileSource(TileSourceFactory.MAPNIK);
         map.setMultiTouchControls(true);
         map.getController().setZoom(12.5);
-        map.getController().setCenter(new GeoPoint(4.636, -74.083));
+        // Plaza Imperial, Suba: punto inicial del demo mientras llega el GPS.
+        map.getController().setCenter(new GeoPoint(4.7494, -74.0975));
     }
 
     private void configureActions() {

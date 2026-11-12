@@ -88,13 +88,14 @@ final class PlacesRepository {
 
     private List<Place> bogotaSample(Location origin, int radiusMeters) {
         float[] fromBogota = new float[1];
-        Location.distanceBetween(origin.getLatitude(), origin.getLongitude(), 4.636, -74.083, fromBogota);
+        // Centro de referencia del demo: Plaza Imperial, Suba.
+        Location.distanceBetween(origin.getLatitude(), origin.getLongitude(), 4.7494, -74.0975, fromBogota);
         if (fromBogota[0] > 10000) return null;
         List<Place> sample = new ArrayList<>();
-        addSample(sample, origin, radiusMeters, "Hospital Universitario Nacional", "Hospital", "Salud", 4.6320, -74.0929);
-        addSample(sample, origin, radiusMeters, "Museo Nacional de Colombia", "Museo", "Turismo", 4.6154, -74.0682);
-        addSample(sample, origin, radiusMeters, "Parque Simón Bolívar", "Parque", "Parques", 4.6578, -74.0931);
-        addSample(sample, origin, radiusMeters, "Jardín Botánico de Bogotá", "Atracción", "Turismo", 4.6675, -74.1013);
+        addSample(sample, origin, radiusMeters, "Hospital de Suba", "Hospital", "Salud", 4.7610, -74.0932);
+        addSample(sample, origin, radiusMeters, "Portal de Suba", "Transporte", "Turismo", 4.7470, -74.0943);
+        addSample(sample, origin, radiusMeters, "Parque Miramar", "Parque", "Parques", 4.7578, -74.1040);
+        addSample(sample, origin, radiusMeters, "Biblioteca Julio Mario Santo Domingo", "Biblioteca", "Turismo", 4.7594, -74.0830);
         sample.sort(Comparator.comparingInt(place -> place.distanceMeters));
         return sample;
     }
