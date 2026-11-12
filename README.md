@@ -9,6 +9,9 @@ Repositorio organizado por retos de Android.
 - `Reto4/`: Tic-Tac-Toe con menu XML, dialogos de dificultad, confirmacion de salida y About.
 - `Reto5/`: Tic-Tac-Toe con tablero dibujado en una vista custom, sonidos y turno de Android con delay.
 - `Reto6/`: Tic-Tac-Toe con soporte portrait/landscape, estado al rotar, puntajes persistentes y reset de marcador.
+- `Reto7/`: Tic-Tac-Toe multijugador con Firebase.
+- `Reto8/`: directorio de empresas con SQLite, filtros y CRUD.
+- `Reto9/`: mapa GPS de lugares cercanos con filtros y radio configurable.
 - `Canvas y mockups/`: documentos de apoyo, canvas y mockups.
 
-Cada reto mantiene su propio proyecto Gradle para abrirlo y ejecutarlo de forma independiente en Android Studio.
+Los retos Android están incluidos como módulos separados en el proyecto Gradle principal.
