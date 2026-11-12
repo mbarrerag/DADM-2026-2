@@ -53,6 +53,7 @@ public class MainActivity extends Activity {
     private ProgressBar loading;
     private Button radiusButton;
     private Button locateButton;
+    private Button recenterButton;
     private TextView[] filters;
     private String category = "Todos";
     private Location currentLocation;
@@ -87,6 +88,7 @@ public class MainActivity extends Activity {
         loading = findViewById(R.id.loading);
         radiusButton = findViewById(R.id.radius_button);
         locateButton = findViewById(R.id.locate_button);
+        recenterButton = findViewById(R.id.recenter_button);
         filters = new TextView[]{findViewById(R.id.filter_all), findViewById(R.id.filter_health),
                 findViewById(R.id.filter_tourism), findViewById(R.id.filter_parks)};
     }
@@ -101,6 +103,13 @@ public class MainActivity extends Activity {
 
     private void configureActions() {
         locateButton.setOnClickListener(view -> locate());
+        recenterButton.setOnClickListener(view -> {
+            if (currentLocation == null) locate();
+            else {
+                map.getController().animateTo(new GeoPoint(currentLocation));
+                map.getController().setZoom(radiusKm <= 1 ? 14.5 : radiusKm <= 3 ? 13.5 : radiusKm <= 5 ? 12.5 : 11.5);
+            }
+        });
         radiusButton.setOnClickListener(view -> showRadiusDialog());
         for (int i = 0; i < filters.length; i++) {
             final int index = i;
