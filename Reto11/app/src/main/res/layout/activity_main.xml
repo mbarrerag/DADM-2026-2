@@ -2,6 +2,7 @@
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="22dp" android:background="#F8F6FF">
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lumi AI" android:textColor="#27164F" android:textSize="27sp" android:textStyle="bold"/>
         <TextView android:id="@+id/mode_status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Asistente para tus ideas" android:textColor="#6B5A8C" android:textSize="14sp"/>
+        <Button android:id="@+id/data_button" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginTop="12dp" android:text="Volver a Datos Colombia" android:textAllCaps="false" android:textColor="#6B4BD6" android:background="@drawable/bubble_ai"/>
     </LinearLayout>
     <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:padding="16dp"><LinearLayout android:id="@+id/messages" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/></ScrollView>
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="12dp" android:background="#F8F6FF">
