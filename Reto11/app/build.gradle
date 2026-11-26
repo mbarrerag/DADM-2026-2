@@ -1,0 +1,8 @@
+plugins { id "com.android.application" }
+def localProperties = new Properties()
+def localFile = rootProject.file("local.properties")
+if (localFile.exists()) localFile.withInputStream { localProperties.load(it) }
+def geminiKey = localProperties.getProperty("GEMINI_API_KEY", "").replace("\\", "\\\\").replace('"', '\\"')
+android { namespace "co.edu.unal.reto11"; compileSdk 36; buildFeatures { buildConfig true }
+    defaultConfig { applicationId "co.edu.unal.reto11"; minSdk 23; targetSdk 34; versionCode 1; versionName "1.0"; buildConfigField "String", "GEMINI_API_KEY", "\"${geminiKey}\"" }
+}

@@ -1,0 +1,11 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="#FFFFFF">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="22dp" android:background="#F8F6FF">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lumi AI" android:textColor="#27164F" android:textSize="27sp" android:textStyle="bold"/>
+        <TextView android:id="@+id/mode_status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Asistente para tus ideas" android:textColor="#6B5A8C" android:textSize="14sp"/>
+    </LinearLayout>
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:padding="16dp"><LinearLayout android:id="@+id/messages" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/></ScrollView>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="12dp" android:background="#F8F6FF">
+        <EditText android:id="@+id/prompt" android:layout_width="0dp" android:layout_height="54dp" android:layout_weight="1" android:hint="Escribe tu prompt…" android:singleLine="true" android:paddingStart="16dp" android:paddingEnd="12dp" android:background="@drawable/bubble_ai"/>
+        <Button android:id="@+id/send" android:layout_width="90dp" android:layout_height="54dp" android:layout_marginStart="8dp" android:text="Enviar" android:textAllCaps="false" android:textColor="#FFFFFF" android:background="@drawable/ai_button"/>
+    </LinearLayout>
+</LinearLayout>

@@ -12,6 +12,8 @@ Repositorio organizado por retos de Android.
 - `Reto7/`: Tic-Tac-Toe multijugador con Firebase.
 - `Reto8/`: directorio de empresas con SQLite, filtros y CRUD.
 - `Reto9/`: mapa GPS de lugares cercanos con filtros y radio configurable.
+- `Reto10/`: SECOP II de Datos Abiertos Colombia consumido por API JSON.
+- `Reto11/`: chatbot Android integrado con Gemini y modo demo sin clave.
 - `Canvas y mockups/`: documentos de apoyo, canvas y mockups.
 
 Los retos Android están incluidos como módulos separados en el proyecto Gradle principal.
