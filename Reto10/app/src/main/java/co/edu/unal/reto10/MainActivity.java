@@ -1,6 +1,7 @@
 package co.edu.unal.reto10;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -23,9 +24,10 @@ import java.util.concurrent.Executors;
 
 public class MainActivity extends Activity {
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
-    private EditText search; private Button button; private TextView status; private ProgressBar loading; private LinearLayout results;
-    @Override public void onCreate(Bundle state) { super.onCreate(state); setContentView(R.layout.activity_main); bind(); button.setOnClickListener(v -> load(search.getText().toString().trim())); load(""); }
-    private void bind() { search=findViewById(R.id.search_input); button=findViewById(R.id.search_button); status=findViewById(R.id.status); loading=findViewById(R.id.loading); results=findViewById(R.id.results); }
+    private EditText search; private Button button; private Button aiButton; private TextView status; private ProgressBar loading; private LinearLayout results;
+    @Override public void onCreate(Bundle state) { super.onCreate(state); setContentView(R.layout.activity_main); bind(); button.setOnClickListener(v -> load(search.getText().toString().trim())); aiButton.setOnClickListener(v -> openAi()); load(""); }
+    private void bind() { search=findViewById(R.id.search_input); button=findViewById(R.id.search_button); aiButton=findViewById(R.id.ai_button); status=findViewById(R.id.status); loading=findViewById(R.id.loading); results=findViewById(R.id.results); }
+    private void openAi() { Intent launch=getPackageManager().getLaunchIntentForPackage("co.edu.unal.reto11"); if(launch!=null) startActivity(launch); else status.setText("Instala el módulo Reto11 para abrir Lumi AI."); }
     private void load(String term) {
         loading.setVisibility(View.VISIBLE); button.setEnabled(false); status.setText("Consultando el Portal Nacional de Datos Abiertos…");
         executor.execute(() -> { try { String address="https://www.datos.gov.co/resource/jbjy-vk9h.json?$limit=20&$order=fecha_de_firma%20DESC"; if(!term.isEmpty()) address += "&$q="+URLEncoder.encode(term,"UTF-8"); JSONArray rows=new JSONArray(get(address)); runOnUiThread(() -> render(rows)); } catch(Exception e) { runOnUiThread(() -> { loading.setVisibility(View.GONE); button.setEnabled(true); status.setText("No se pudo consultar el servicio. Revisa tu conexión."); }); } });
